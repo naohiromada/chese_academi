@@ -1,0 +1,565 @@
+
+/*全体　共通
+最初から設定してあるので特に変更
+しなくても大丈夫です♪
+-----------------*/
+body{
+	font-family: Roboto, "Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
+	line-height: 1.75;
+	font-size: 16px;
+}
+
+
+/*　パディングをサイズ内側にする処理　*/
+* {
+	padding:0;
+	margin:0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/*ーーーーーーーーーーー*/
+/*この下から記述*/
+/*ーーーーーーーーーーー*/
+
+
+
+
+
+/*どの部分のcssに対して
+命令をしているのかコメントを
+記載しよう！
+---------------------*/
+
+
+/*body
+---------------------*/
+body{
+	margin: 0 auto;
+	width: 960px; 
+}
+
+
+/* トップ画像
+---------------------*/
+.title-box{
+    background: url(../img/mainbg.png);
+    background-size: cover;
+    background-position: center;
+    height: 250px;
+    display: flex;
+    flex-direction: column;	
+}
+
+.title_box_title{
+    text-align: center;
+    font-size: 48px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.title_box_text{
+    font-size: 36px;
+    text-align: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ナビエリア
+---------------------*/
+.nav_box{
+	display: flex;
+	height: 80px;
+	/* height: calc(100vh - 80px); */
+	font-size: 21px;
+	
+	align-items: center;
+	border:1px solid #efefef;
+}
+
+.nav_box_img{
+    width: 50%;
+	margin-left: 50px;	
+	/* align-content: center;
+	justify-content: space-around; */
+}
+
+nav{
+	width: 50%;
+	display: flex;
+    align-items: center;
+	justify-content: space-around;
+    /* background: blueviolet; */
+}
+
+
+.link-text{
+	width: 20%;	/*メニュー幅（100÷6個=16.66%）　もし４個にするなら100÷4=25%になる。*/
+    color: black;
+    text-decoration: none;
+}
+.link-text:hover{
+    color: rgb(235, 23, 23);
+    text-decoration: underline;
+}
+.link-text:active{
+    color: rgb(10, 241, 99);
+    text-decoration: underline;
+}
+.link-note{
+    font-weight:hold;
+    color: rgb(241, 4, 4);
+}
+
+/*メインメニューのブロック
+---------------------------------------------------------------------------*/
+/*メニューブロック*/
+#menubar {
+	clear: both;
+	width: 100%;
+	height: 80px;		/*メニューの高さ。下の「#menubar ul li a」の「height」と「padding-top」の数字を合計した数字に合わせる。*/
+	text-align: center;	/*文字を中央に*/
+	background: #efefef;	/*背景色*/
+	border-top: 1px solid #efefef;		/*上の線の幅、線種、色（古いブラウザ用）*/
+	border-bottom: 1px solid #807e7e;	/*下の線の幅、線種、色（古いブラウザ用）*/
+	border-top: 1px solid #807e7e(255,255,255,0.5);	/*上の線の幅、線種、255,255,255は白の事で0.5は50%色がついた状態の事。*/
+	border-bottom: 1px solid #807e7e(255,255,255,0.5);	/*上の線の幅、線種、255,255,255は白の事で0.5は50%色がついた状態の事。*/
+}
+/*メニュー１個あたりの設定*/
+#menubar li {
+	float: left;	/*左に回り込み*/
+	width: 20%;	/*メニュー幅（100÷6個=16.66%）　もし４個にするなら100÷4=25%になる。*/
+}
+#menubar li a {
+	text-decoration: none;display: block;
+	font-weight: bold;	/*太字に*/
+	line-height: 1.8;	/*行間を少し狭く*/
+	color: rgb(12, 12, 12);		/*文字色*/
+	height: 80px;		/*高さ*/
+	padding-top: 15px;	/*上に追加する余白*/
+	border-right: 1px solid #efefef;	/*メニューの右側の線の幅、線種、色（古いブラウザ用）*/
+	border-right: 1px solid #efefef(255,255,255,0.5);	/*右の線の幅、線種、255,255,255は白の事で0.5は50%色がついた状態の事。*/
+}
+/*１つ目のメニューへの追加設定*/
+#menubar li:first-child a {
+	border-left: 1px solid #efefef;	/*メニューの線の幅、線種、色（古いブラウザ用）*/
+	border-left: 1px solid #efefef(255,255,255,0.5);	/*左の線の幅、線種、255,255,255は白の事で0.5は50%色がついた状態の事。*/
+}
+/*飾り文字*/
+#menubar li span {
+	display: block;
+	font-size: 21px;			/*文字サイズ*/
+	font-weight: normal;	/*文字を太字でなく標準に戻す設定*/
+	letter-spacing: 0.2em;	/*文字間隔を少しあける設定*/
+	opacity: 0.5;			/*透明度50％*/
+}
+/*マウスオン時、現在表示中(current)のメニューの共通設定*/
+#menubar li a:hover, #menubar li.current a {
+	background: #fff;	/*背景色*/
+	color: #f30606;		/*文字色*/
+}
+/*スマホ用メニューを表示させない*/
+#menubar-s {display: none;}
+/*３本バーアイコンを表示させない*/
+#menubar_hdr {display: none;}
+
+
+/* テキストＢＯＸ
+---------------------*/
+.contentu_title_text{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+/* スペースボックス
+---------------------*/
+.space_box120_yello{
+	padding-top: 120px;
+	font-size: 24px;
+	color: #ffd61a;
+	display: flex;
+	text-align: center; 
+	flex-direction: column; 
+	/* background: #f10404;	 */
+}
+.space_box24{
+	padding-top: 24px;
+	display: flex;
+	/* text-align: center;  */
+	flex-direction: column; 
+	/* background: #f10404;	 */
+}
+.space_box32{
+	padding-top: 32px;
+	display: flex;
+	/* text-align: center;  */
+	flex-direction: column; 
+	/* background: #f10404;	 */
+}
+.space_box64{
+	padding-top: 64px;
+	display: flex;
+	text-align: center; 
+	flex-direction: column; 
+	/* background: #f10404;	 */
+}
+.space_box40{
+	padding-top: 40px;
+	display: flex;
+	text-align: center; 
+	flex-direction: column; 
+	/* background: #f10404;	 */
+}
+.space_box48{
+	padding-top: 48px;
+	display: flex;
+}
+
+.space_box64_black{
+	padding-top: 64px;
+	font-size: 24px;
+	color: #222222;
+	display: flex;
+	text-align: center; 
+ 	flex-direction: column; 
+	/* background: #f10404;	 */
+}
+.space_box64_bottom{
+	margin-bottom: 64px;
+	/* display: flebox; */
+	/* text-align: center;  */
+	/* flex-direction: column;  */
+	/* background: #f10404;	 */
+}
+.space_box64_yello{
+	padding-top: 64px;
+	font-size: 24px;
+	color: #ffd61a;
+	display: flex;
+	text-align: center; 
+	flex-direction: column; 
+	/* background: #f10404;	 */
+}
+.space24{
+	padding-top: 24px;
+	/* display: flex; */
+	/* text-align: left;  */
+	/* flex-direction: column;  */
+	/* background: #f10404;	 */
+}
+.space32{
+	padding-top: 32px;
+}
+.space40{
+	padding-top: 40px;
+}
+.space100{
+	padding-top: 100px;
+}
+.space120{
+	padding-left: 120px;
+}
+.space44{
+	padding-left: 44px;
+}
+.space92{
+	padding-left: 92px;
+}
+.space104{
+	padding-left: 104px;
+}
+.space116{
+	padding-left: 116px;
+}
+.space180{
+	padding-left: 180px;
+}
+.space200{
+	padding-left: 200px;
+	background: lightcoral;
+}
+.space64{
+	padding-top: 64px;
+	display: flex;
+	flex-direction: column;
+}
+.space80{
+	padding-bottom: 80px;
+	/* display: flex; */
+	/* text-align: left;  */
+	/* flex-direction: column;  */
+	/* background: #f10404;	 */
+}
+
+ul li{
+	list-style: none;
+}
+label{
+	margin-right: 10px;
+	width: 150px;
+	/* float:left; */
+}
+
+
+
+/* スペースボックス
+---------------------*/
+.phot_box{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+}
+.phot_imgbox{
+	width: 25%; 
+	display: flex;
+	/* justify-content: center; */
+	/* height: 80px; */
+	/* height: calc(100vh - 80px); */
+	/* align-items: center; */
+	border:1px solid #efefef;
+	/* flex-basis: 96px; */
+}
+
+
+/* 画像ボックス １
+---------------------*/
+.img_box{
+	width: 100%;
+	display: flex;
+    justify-content: center; 
+	align-items: center;
+	/* background: #2ff707; */
+	/* align-items: center; */
+	/* justify-content: space-around; */
+}
+
+
+.img_box_img{
+    /* padding-top: 64px; */
+	width: 50%;
+	display: flex;
+	/* justify-content:center;  */
+    /* align-items: center; */
+	/* background: #ffd61a; */
+}
+
+.img_box_text_left {
+	/* padding-top: 64px; */
+	/* margin-left: 48px; */
+    text-align: left;
+	width: 50%;
+    /* display: flex; */
+    /* flex-direction: column;   */
+	flex-direction: column-reverse; 
+    align-items: center;
+    /* background: blueviolet; */
+}
+.img_box_text_right {
+	/* padding-top: 64px; */
+	/* margin-left: 48px; */
+    text-align: right;
+	width: 50%;
+    /* display: flex; */
+    /* flex-direction: column;   */
+	flex-direction: column-reverse; 
+    align-items: center;
+    /* background: blueviolet; */
+}
+.img_box_text_title{
+	font-size: 24px;
+	color: #222222;	
+}
+.img_box_text_text{
+	padding-top: 40px;
+}
+
+.img_box_img img {
+    width: 100%;
+}
+
+.img_box_text_left ul {
+    width: 85%;
+	/* justify-content:center;  */
+    /* align-items: center; */
+    /* background-color: aqua;   */
+} 
+.img_box_text_right ul {
+    width: 85%;
+    margin-left: 40px;
+	text-align: left;
+	justify-content:center; 
+    /* align-items: center; */
+    /* background-color: aqua;   */
+} 
+
+/* news ボックス １
+---------------------*/
+.news_box{
+	width: 960px;
+	display: flex;
+	/* flex-direction: row; */
+    justify-content: space-around; 
+	/* align-items: center;	 */
+}
+.news_box_123{
+	width: 300px;
+	display: flex;
+    flex-direction: column; 
+	/* align-items: center;	 */
+}
+.news_box_img{
+	width: 100%;
+	display: flex;
+}
+.news_box_text {
+	width: 85%;
+	text-align: left;
+    /* display: flex; */
+	/* text-align: left; */
+}
+
+/* more ボタン
+---------------------*/
+.more_box{
+	padding-top: 56px;
+	width: 960px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.more_bottan{
+	width: 300px;
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+	background: orange;
+	font-size: 21px;
+	color: white;
+}
+
+/* 背景 #fafafa
+---------------------*/
+.box_eria{
+	width: 960px;
+	height: 269px;
+	background-color: #fafafa;
+}
+
+/* 概要BOX
+---------------------*/
+.adrres_box{
+	width: 960px;
+	background-color: #fafafa;
+	/* justify-content: center; */
+	/* align-items: center; */
+}
+
+/* 問合せ */
+.contact td {
+    vertical-align: top;
+}
+
+.contact input {
+    border: rgb(80, 80, 80) solid 1px;
+    width: 328px;
+    height: 36px;
+    background-color: rgba(80, 80, 80, 0.1);
+}
+
+.check-menu {
+    margin-bottom: 24px;
+}
+
+.checkbox input {
+    height: 24px;
+    width: 24px;
+    color: #f0ebe5;
+    margin-left: 40px;
+}
+
+
+.contact button {
+    height: 54px;
+    width: 298px;
+    background-color: #ffd61a;
+    margin: 8px 0px 100px 0px;
+    border: rgb(80, 80, 80) solid 1px;
+}
+
+.contact a {
+	line-height: 54px;
+    display: block;
+    font-size: 24px;
+    color: azure;
+}
+
+textarea {
+    border: rgb(80, 80, 80) solid 1px;
+    width: 328px;
+    height: 108px;
+    background-color: rgba(80, 80, 80, 0.1);
+}
+
+.posisyon{
+	margin-left: 150px;
+}
+
+td,input{
+    padding: 24px;
+}
+
+/* 送信
+---------------------*/
+.contact button {
+    height: 54px;
+    width: 298px;
+    background-color: #ffd61a;
+    margin: 8px 0px 100px 0px;
+    border: rgb(80, 80, 80) solid 1px;
+}
+
+
+/* バックホーム */
+.back-home {
+	margin-left: 840px;
+    width: 60px;
+    height: 60px;
+    /* margin: 0 auto; */
+	display: flex;
+    justify-content: center;
+	align-items: center;
+	background: rgb(121, 121, 118);
+	color: white;
+	/* border: 4px solid rgb(128, 128, 125); */
+}
+
+/* フッター
+---------------------*/
+.futter_text_box{
+	height: 60px;
+	font-size: 18px;
+    display: flex;
+	text-align: center; 
+	flex-direction: column; 
+	background: #707070;
+    justify-content: space-around;
+}
+.footer {
+    background-color: rgba(128, 126, 126, 1);
+    border: gold 3px solid;
+    height: 60px;
+    line-height: 60px;
+    font-size: 20px;
+    color: gold;
+    text-align: center;
+    font-family: serif;
+}
